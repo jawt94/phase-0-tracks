@@ -1,0 +1,12 @@
+- Wait until it is 08:00 (8AM). 
+- Start the “workout” counter at 10 minutes.
+- Every time a minute passes, until 08:10 is reached:
+	-Subtract 1 from the “minutes remaining” count
+- At 08:10, yell out “time to workout”. 
+- If it is Monday, Wednesday or Friday: 
+	- Go attend a class.
+- Elsif it is Sunday,
+	-Display “It is rest day”. 
+- Otherwise: 
+	- If it is Tuesday, Thursday or Saturday:
+		- Go for a run. 
