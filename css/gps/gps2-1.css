@@ -1,0 +1,18 @@
+.column-1 {
+	display: inline-block;
+	width: 40%;
+	margin: 30px;
+	background-color: pink;
+	padding: 20px;
+	vertical-align: top;
+	font-family: tahoma;
+}
+
+.column-2 {
+	display: inline-block;
+	width: 40%;
+	margin: 30px; 
+	background-color: yellow;
+	vertical-align: top;
+	font-family: tahoma;
+}
