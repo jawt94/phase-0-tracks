@@ -41,25 +41,32 @@ class WordGuessingGame
           @guessed[index] = letter_guessed
         end #if
       end #do 
-      puts "Good guess. Keep going!"
+      return "Good guess. Keep going!"
     else  
-      puts "Bad Guess. Try again" 
       @count +=1 
+      return "Bad Guess. Try again" 
     end #if word_letters.include?   
   end #def guess(letter_guessed)
 
 #define method for checking if game is over
 	def check_if_game_over 
-		guesses = @chances - @count
+		p @guessed 
+    guesses = @chances - @count
 		if !@guessed.include?('_')
 			@is_over = true
 			puts "You got it correct! Game over!"
 		elsif guesses < 1
 			@is_over = true 
 			 puts "You ran out of guesses! GAME OVER!!"
-		end #if
-		puts "Player 2: You have #{guesses} guesses left, enter a letter from a to z to guess the word"
-	end #check_if_game_over
+		elsif @guessed == @word_letters
+      puts "You got it correct! Game over!"
+      @is_over = true 
+    end #if
+		if @is_over == false
+      puts "Player 2: You have #{guesses} guesses left, enter a letter from a to z to guess the word"
+	  end #if @is_over==false
+    @is_over
+  end #check_if_game_over 
 end #class
 
 #User interface
@@ -70,8 +77,16 @@ puts "Player 1, input your word to guess:"
 word = gets.chomp.downcase 
 game = WordGuessingGame.new(word)
 
+#Test
+#game =WordGuessingGame.new("hello")
+#game.guess('h')
+#game.guess('e')
+#game.guess('l')
+#game.guess('o')
+#p game.check_if_game_over
 
-#Driver code 
+
+Driver code 
 until game.is_over == true
 	p game.guessed
 	puts "Player 2, input your guess:"
