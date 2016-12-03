@@ -26,7 +26,7 @@ my_list = list_creator("carrots apples cereal pizza")
 # output:updated list in hash
 
 def add_item(list,item,quantity =1)
-	if list[item]
+	if list.include?(item)
 		list[item] += quantity
 	else
 		list[item] =quantity
