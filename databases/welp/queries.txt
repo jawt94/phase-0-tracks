@@ -1,0 +1,24 @@
+ 2. How to join three tables 
+
+ SELECT reviews.id, stars, comment, business_id, user_id
+   ...> FROM reviews
+   ...> NATURAL JOIN businesses
+   ...> NATURAL JOIN users;
+
+3. SELECT users.first_name, businesses.name, stars, comment
+   ...> FROM users
+   ...> NATURAL JOIN businesses
+   ...> NATURAL JOIN reviews;
+
+OUTPUT: 
+Bradford|Grundy Hollow Wedding Chapel|5|good food!
+Mandy|Amir's Towing|3|mediocre food!
+
+4. SELECT users.first_name, businesses.name, stars, comment
+   ...> FROM users
+   ...> NATURAL JOIN businesses
+   ...> NATURAL JOIN reviews
+   ...> WHERE business_id = 1;
+
+OUTPUT: 
+Bradford|Grundy Hollow Wedding Chapel|5|good food!
