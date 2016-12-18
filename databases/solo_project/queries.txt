@@ -1,0 +1,48 @@
+----RELEASE 2-----
+1. 
+SELECT * FROM students;
+1|Joe|3.5|1
+2|Julie|3.6|2
+3|Joanna|3.7|3
+
+2. update major SET name= "BUSINESS" where name="Business";
+OUTPUT: 
+1|BUSINESS
+2|PSYCHOLOGY
+3|ECONOMICS
+
+3. 
+SELECT students.name, students.GPA, major.name FROM students JOIN major ON students.major_id = major.id;
+Joe|3.5|Business
+Julie|3.6|PSYCHOLOGY
+Joanna|3.7|ECONOMICS
+
+4. SELECT students.name, major.name FROM students JOIN major ON students.major_id = major.id;
+Joe|BUSINESS
+Julie|PSYCHOLOGY
+Joanna|ECONOMICS
+
+5.DELETE FROM students
+   ...> WHERE name="Joe";
+OUTPUT: 
+2|Julie|3.6|2
+3|Joanna|3.7|3
+
+----RELEASE 3----
+1. There are lots of different kinds of joins. What are they? 
+Join, Inner Join, Left Join, Right Join, Full Join
+
+Join - basic clause to combine rows from 2+ tables based ona  common field between them
+Inner- returns all rows from multiple tables where the join condition is met
+Left Join- disply all data from left table regardless of whether there was a match or not
+Right join: returns all rows from the right table, with the matching rows in the left table. The result is NULL in the left side where there is no match. 
+Full Join- returns all rows from the left table and from the right table
+
+Trial of left join: 
+SELECT students.name, major.name
+   ...> FROM students
+   ...> LEFT JOIN major
+   ...> ON students.id=major.id;
+Julie|PSYCHOLOGY
+Joanna|ECONOMICS
+
